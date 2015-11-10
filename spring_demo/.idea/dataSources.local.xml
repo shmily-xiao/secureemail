@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - demo@localhost" uuid="7779564c-bcb7-41df-9157-2f493fdb099d">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>demo.pg_catalog demo.public</schema-pattern>
+      <default-schemas>demo.pg_catalog demo.public</default-schemas>
+    </data-source>
+    <data-source name="PostgreSQL - secureemail@localhost" uuid="881b15b2-b832-47e6-b5ab-5855cafd56da">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>secureemail.*</schema-pattern>
+      <default-schemas>secureemail.pg_catalog secureemail.public</default-schemas>
+    </data-source>
+  </component>
+</project>
