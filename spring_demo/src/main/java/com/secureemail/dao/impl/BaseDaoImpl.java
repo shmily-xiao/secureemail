@@ -4,11 +4,12 @@ import com.secureemail.dao.BaseDao;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
 
+
 /**
  * Created by simpletour_Jenkin on 2015/11/7.
  * 基础的实现
  */
-public class BaseDaoImpl<T> extends SqlSessionDaoSupport implements BaseDao<T>{
+public class BaseDaoImpl<T,PK> extends SqlSessionDaoSupport implements BaseDao<T,PK>{
 
     public String getNameSpace(){
         return this.getClass().getName();
@@ -19,7 +20,7 @@ public class BaseDaoImpl<T> extends SqlSessionDaoSupport implements BaseDao<T>{
     }
 
     @Override
-    public T find(T query) {
+    public PK find(T query) {
         return this.getSqlSession().selectOne(opof(getNameSpace(),"find"),query);
     }
 

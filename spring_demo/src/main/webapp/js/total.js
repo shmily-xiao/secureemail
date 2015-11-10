@@ -3,7 +3,7 @@
 function check()
 {
     
-    if(confirm("È·¶¨Âð?"))
+    if(confirm("È·ï¿½ï¿½ï¿½ï¿½?"))
     {
         return true;
     }
@@ -34,7 +34,7 @@ function getCookie(name) {
 /*===================================================================================================================*/
 var ojPage = (function($){
     var gConf;
-    //ÕâÀïµÄ²å¼þÖ»»áÔÚ³õÊ¼»¯µÄÊ±ºò±»´´½¨Ò»´Î£¬ÔÚÒÔºóµÄojPageµÄµ÷ÓÃÖÐ£¬²»»áÔÙ´Î´´½¨ËüÁË,£¬ËùÒÔ²»ÐèÒªÅÐ¶Ï²å¼þÊÇ²»ÊÇÔÚ$ÖÐ
+    //ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ú³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ò±»´ï¿½ï¿½ï¿½Ò»ï¿½Î£ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ojPageï¿½Äµï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù´Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Òªï¿½Ð¶Ï²ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½$ï¿½ï¿½
     $.fn.pagination = function(conf){
         gConf = conf;
         var page = this.ojPaginate(conf);
@@ -259,97 +259,97 @@ function register_ajax(){
 	var student_enrol_date = $("#student_enrol_date").val();
 	var student_tel = $("#student_tel").val();
     if(!isUsername(username) || username.length <2){
-        $("#register_error").addClass("error_color").html("ÓÃ»§Ãû±ØÐëÊÇ´óÓÚÁ½Î»µÄÖÐÎÄ£¬ÇëÌîÐ´ÄãÕæÊµµÄÃû×Ö"
+        $("#register_error").addClass("error_color").html("ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentname").addClass("has-error");
         return false
     }$("#studentname").removeClass("has-error");
     if (!isStudentID(student_id) || student_id.length >16 || student_id.length <8){
-        $("#register_error").addClass("error_color").html("ÇëÈçÊµÌîÐ´ÄãµÄÑ§ºÅ£¬°ËÎ»ÒÔÉÏ"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ñ§ï¿½Å£ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentid").addClass("has-error");
         return false
     }$("#studentid").removeClass("has-error");
     if (student_degree == ''){
-        $("#register_error").addClass("error_color").html("ÇëÌîÈëÉúÔ´µØ"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentdegree").addClass("has-error");
         return false
     }$("#studentdegree").removeClass("has-error");
     if (student_nation == ''){
-        $("#register_error").addClass("error_color").html("ÇëÌîÈëÉúÔ´µØ"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentnation").addClass("has-error");
         return false
     }$("#studentnation").removeClass("has-error");
     if (student_place == ''){
-        $("#register_error").addClass("error_color").html("ÇëÌîÈëÉúÔ´µØ"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentplace").addClass("has-error");
         return false
     }$("#studentplace").removeClass("has-error");
     if (!isStudentQQ(student_qq) || student_qq.length < 5){
-        $("#register_error").addClass("error_color").html("ÇëÈçÊµÌîÐ´ÄãµÄQQ,È«²¿ÎªÊý×Ö"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½Ð´ï¿½ï¿½ï¿½QQ,È«ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentqq").addClass("has-error");
         return false
     }$("#studentqq").removeClass("has-error");
     if (!isEmail(student_email) || student_email == ""){
-        $("#register_error").addClass("error_color").html("ÇëÌîÈëÕýÈ·µÄÓÊÏä"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentemail").addClass("has-error");
         return false
     }$("#studentemail").removeClass("has-error");
     if (student_bedroom == ""){
-        $("#register_error").addClass("error_color").html("ÇëÌîÈëÕýÈ·µÄÇÞÊÒºÅ"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Òºï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentbedroom").addClass("has-error");
         return false
     }$("#studentbedroom").removeClass("has-error");
     if (student_class == ""){
-        $("#register_error").addClass("error_color").html("ÇëÌîÈëÕýÈ·µÄÇÞÊÒºÅ"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Òºï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentclass").addClass("has-error");
         return false
     }$("#studentclass").removeClass("has-error");
     if (student_class == ""){
-        $("#register_error").addClass("error_color").html("ÇëÌîÈëÕýÈ·µÄÇÞÊÒºÅ"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Òºï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentclass").addClass("has-error");
         return false
     }$("#studentclass").removeClass("has-error");
     if (!isIdCard(student_idcard)){
-        $("#register_error").addClass("error_color").html("ÇëÌîÈëÕýÈ·µÄÉí·ÝÖ¤15/18"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤15/18"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentidcard").addClass("has-error");
         return false
     }$("#studentidcard").removeClass("has-error");
     if (!isIdCard(student_idcard)){
-        $("#register_error").addClass("error_color").html("ÇëÌîÈëÕýÈ·µÄÉí·ÝÖ¤15/18"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤15/18"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentidcard").addClass("has-error");
         return false
     }$("#studentidcard").removeClass("has-error");
     if (student_polit_stat == ""){
-        $("#register_error").addClass("error_color").html("ÇëÌîÈëÕýÈ·µÄÉí·ÝÖ¤15/18"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤15/18"
             ).fadeIn(1000).fadeOut(4000);
         $("#student_politstat").addClass("has-error");
         return false
     }$("#student_politstat").removeClass("has-error");
     if (!isStudentQQ(student_tel) || student_tel.length != 11){
-        $("#register_error").addClass("error_color").html("ÕþÖÎÃæÃ²²»ÄÜÎª¿Õ"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studenttel").addClass("has-error");
         return false
     }$("#studenttel").removeClass("has-error");
     if (student_enrol_date == ""){
-        $("#register_error").addClass("error_color").html("ÕþÖÎÃæÃ²²»ÄÜÎª¿Õ"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#student_enroldate").addClass("has-error");
         return false
     }$("#student_enroldate").removeClass("has-error");    
     if (student_bdate == ""){
-        $("#register_error").addClass("error_color").html("ÕþÖÎÃæÃ²²»ÄÜÎª¿Õ"
+        $("#register_error").addClass("error_color").html("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½"
             ).fadeIn(1000).fadeOut(4000);
         $("#studentbdate").addClass("has-error");
         return false
@@ -370,7 +370,7 @@ function register_ajax(){
     msg.student_enrol_date = student_enrol_date;
     msg.student_tel = student_tel;
     msg.csrfmiddlewaretoken =  getCookie('csrftoken');
-    $.post("/user/register_ajax/",msg,function(data){
+    $.post("/web/front/register/",msg,function(data){
     	$("#register_form").submit();
     });
 
@@ -461,7 +461,7 @@ function change_user_information_ajax(){
 function add_option(){
     var p_element = $("#student_class");
     var times = p_element.attr("alt")-2010+1;
-    var grade = ["Ó¦ÓÃÎïÀí","ÊýÑ§ÓëÓ¦ÓÃÊýÑ§","ÐÅÏ¢Óë¼ÆËã¿ÆÑ§","¹âµçÐÅÏ¢¿ÆÑ§Óë¹¤³Ì"];
+    var grade = ["Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½Ñ§ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ñ§","ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§","ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ñ§ï¿½ë¹¤ï¿½ï¿½"];
     for (num in grade){
         for(var i =1;i<= times;i++){
            p_element.append("<option>"+grade[num]+(1101)+"</option>");
@@ -553,7 +553,7 @@ function teacher_change_user_information_ajax(){
         alert('ok!');
     });
 }
-function evaluation_ajax(){ //×ÛºÏÆÀ¼ÛÄ£¿é
+function evaluation_ajax(){ //ï¿½Ûºï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
     get_content = {};
     get_content.user_pk = $("#name_pk").attr("alt");
     get_content.year_num = $("#year_num").val();
@@ -569,12 +569,12 @@ function evaluation_ajax(){ //×ÛºÏÆÀ¼ÛÄ£¿é
 }
 
 
-function teacher_valuation_ajax(){ //½ÌÊ¦ÆÀ¼ÛÄ£¿é
+function teacher_valuation_ajax(){ //ï¿½ï¿½Ê¦ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
     get_content = {};
-    get_content.pk = $("#name_pk").attr("alt");   //Ñ§ÉúÑ§ºÅ
-    get_content.course = $("#course_name").val();  //¿Î³ÌÃû×Ö
-    get_content.comments_time = $("#course_time").val(); //¿Î³ÌÊ±¼ä
-    get_content.teacher_comments = $("#teacher_course_valuation").val(); //¿Î³ÌÀÏÊ¦µÄÆÀ¼Û
+    get_content.pk = $("#name_pk").attr("alt");   //Ñ§ï¿½ï¿½Ñ§ï¿½ï¿½
+    get_content.course = $("#course_name").val();  //ï¿½Î³ï¿½ï¿½ï¿½ï¿½ï¿½
+    get_content.comments_time = $("#course_time").val(); //ï¿½Î³ï¿½Ê±ï¿½ï¿½
+    get_content.teacher_comments = $("#teacher_course_valuation").val(); //ï¿½Î³ï¿½ï¿½ï¿½Ê¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     //a = $("#teacher_course_valuation");
     //alert(a);
     get_content.csrfmiddlewaretoken =  getCookie('csrftoken');
@@ -585,10 +585,10 @@ function teacher_valuation_ajax(){ //½ÌÊ¦ÆÀ¼ÛÄ£¿é
 
 }
 
-function counselor_valuation_ajax(){ //¸¨µ¼Ô±ÆÀ¼ÛÄ£¿é
+function counselor_valuation_ajax(){ //ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
     get_content = {};
-    get_content.pk = $("#name_pk").attr("alt");   //Ñ§ÉúÑ§ºÅ
-    get_content.counselor_comments = $("#counselor_course_valuation").val(); //¸¨µ¼Ô±µÄÆÀ¼Û
+    get_content.pk = $("#name_pk").attr("alt");   //Ñ§ï¿½ï¿½Ñ§ï¿½ï¿½
+    get_content.counselor_comments = $("#counselor_course_valuation").val(); //ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     // a = $("#counselor_course_valuation");
     //alert(a);
     get_content.csrfmiddlewaretoken =  getCookie('csrftoken');

@@ -1,11 +1,13 @@
 package com.demo.controller;
 
 import com.demo.domain.BrandMobileInfoEntity;
+import com.demo.domain.OrderPrice;
 import com.demo.domain.Person;
 import com.demo.service.PersonService;
 import com.demo.service.UserService;
 import org.apache.commons.fileupload.DiskFileUpload;
 import org.apache.commons.fileupload.FileItem;
+import org.apache.logging.log4j.core.config.Order;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -41,81 +43,72 @@ public class PoiTestController {
     }
     @RequestMapping(value = "/importBrandSort", method = RequestMethod.POST)
     public String importBrandSort(@RequestParam("filename") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
-        /*String temp = request.getSession().getServletContext()
-                .getRealPath(File.separator)
-                + "temp"; // 临时目录
-        File tempFile = new File(temp);
-        if (!tempFile.exists()) {
-            tempFile.mkdirs();
-        }
-        DiskFileUpload fu = new DiskFileUpload();
-        fu.setSizeMax(10 * 1024 * 1024); // 设置允许用户上传文件大小,单位:位
-        fu.setSizeThreshold(4096); // 设置最多只允许在内存中存储的数据,单位:位
-        fu.setRepositoryPath(temp); // 设置一旦文件大小超过getSizeThreshold()的值时数据存放在硬盘的目录
-        // 开始读取上传信息
-        // int index = 0;
-        List fileItems = null;
-        try {
-            fileItems = fu.parseRequest(request);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Iterator iter = fileItems.iterator(); // 依次处理每个上传的文件
-        FileItem fileItem = null;
-        while (iter.hasNext()) {
-            FileItem item = (FileItem) iter.next();// 忽略其他不是文件域的所有表单信息
-            if (!item.isFormField()) {
-                fileItem = item;
-                // index++;
-            }
-        }
-
-        if (fileItem == null)
-            return null;
-*/
         if (file == null)
             return null;
-//        logger.info(file.getOriginalFilename());
 
         String name = file.getOriginalFilename();// 获取上传文件名,包括路径
-        //name = name.substring(name.lastIndexOf("\\") + 1);// 从全路径中提取文件名
         long size = file.getSize();
         if ((name == null || name.equals("")) && size == 0)
             return null;
         InputStream in = file.getInputStream();
-        int count = importBrandPeriodSort(in).size();
+        List<OrderPrice> orderPrices = importBrandPeriodSort(in);
+//        int count = importBrandPeriodSort(in).size();
+        List<OrderPrice> wechatFact = orderPrices.subList(0,44);
+        List<OrderPrice> wechat = orderPrices.subList(45,orderPrices.size());
 
-        // 改为人工刷新缓存KeyContextManager.clearPeriodCacheData(new
-        // PeriodDimensions());// 清理所有缓存
-        //int count = BrandMobileInfos.size();
+        List<OrderPrice> tempWechatFact = new ArrayList<>();
+        List<OrderPrice> tempWechat = new ArrayList<>();
+
+        for (OrderPrice orderPrice1:wechatFact){
+            int ii = 0;
+            for (OrderPrice orderPrice2:wechat){
+                if (orderPrice1.getOrderId().equalsIgnoreCase(orderPrice2.getOrderId())){
+                    ii = 1;
+                    break;
+                }
+            }
+            if (ii==0){
+                tempWechatFact.add(orderPrice1);
+            }
+        }
+        for (OrderPrice orderPrice1:wechat){
+            int ii = 0;
+            for (OrderPrice orderPrice2:wechatFact){
+                if (orderPrice1.getOrderId().equalsIgnoreCase(orderPrice2.getOrderId())){
+                    ii = 1;
+                    break;
+                }
+            }
+            if (ii==0){
+                tempWechat.add(orderPrice1);
+            }
+        }
+
         String strAlertMsg ="";
 
-        strAlertMsg= "成功更新" + count + "条！";
+//        strAlertMsg= "成功更新" + count + "条！";
 
-//        logger.info(strAlertMsg);
-        //request.setAttribute("brandPeriodSortList", BrandMobileInfos);
-        //request.setAttribute("strAlertMsg", strAlertMsg);
 
         request.getSession().setAttribute("msg",strAlertMsg);
         return "success";
         //return null;
     }
     
-    public List<BrandMobileInfoEntity> importBrandPeriodSort(InputStream in) throws Exception  {
+    public List<OrderPrice> importBrandPeriodSort(InputStream in) throws Exception  {
 
-        List<BrandMobileInfoEntity> brandMobileInfos = readBrandPeriodSorXls(in);
-        for (BrandMobileInfoEntity brandMobileInfo : brandMobileInfos) {
-            personService.updateByConditions(brandMobileInfo);
-            personService.insertByConditions(brandMobileInfo);
-        }
+        List<OrderPrice> brandMobileInfos = readBrandPeriodSorXls(in);
+//        for (BrandMobileInfoEntity brandMobileInfo : brandMobileInfos) {
+//            personService.updateByConditions(brandMobileInfo);
+//            personService.insertByConditions(brandMobileInfo);
+//        }
         return brandMobileInfos;
     }
 
-    private List<BrandMobileInfoEntity> readBrandPeriodSorXls(InputStream is)
+    private List<OrderPrice> readBrandPeriodSorXls(InputStream is)
             throws IOException, ParseException {
         HSSFWorkbook hssfWorkbook = new HSSFWorkbook(is);
-        List<BrandMobileInfoEntity> brandMobileInfos = new ArrayList<BrandMobileInfoEntity>();
-        BrandMobileInfoEntity brandMobileInfo;
+        List<OrderPrice> brandMobileInfos = new ArrayList<OrderPrice>();
+        OrderPrice brandMobileInfo;
         // 循环工作表Sheet
         for (int numSheet = 0; numSheet < hssfWorkbook.getNumberOfSheets(); numSheet++) {
             HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(numSheet);
@@ -124,15 +117,16 @@ public class PoiTestController {
             }
             // 循环行Row
             for (int rowNum = 0; rowNum <= hssfSheet.getLastRowNum(); rowNum++) {
-                brandMobileInfo = new BrandMobileInfoEntity();
+                brandMobileInfo = new OrderPrice();
                 HSSFRow hssfRow = hssfSheet.getRow(rowNum);
 //                    HSSFCell brandIdHSSFCell = hssfRow.getCell(i);
-                brandMobileInfo.setName(hssfRow.getCell(0).toString().replace("\"", ""));
-                String info = hssfRow.getCell(1).toString();
-                brandMobileInfo.setAge(Integer.valueOf(info.substring(0, info.length()-2)));
-                brandMobileInfo.setId(hssfRow.getCell(2).toString().replace("\"", ""));
-                brandMobileInfo.setMobile(hssfRow.getCell(3).toString().replace("\"", ""));
-                brandMobileInfo.setPassword(hssfRow.getCell(4).toString().replace("\"",""));
+                brandMobileInfo.setOrderId(hssfRow.getCell(0).toString().replace("\"", ""));
+//                String info = hssfRow.getCell(1).toString();
+                brandMobileInfo.setPrice(hssfRow.getCell(1).toString().replace("\"",""));
+//                brandMobileInfo.setPrice(Integer.valueOf(info.substring(0, info.length()-2)));
+//                brandMobileInfo.setId(hssfRow.getCell(2).toString().replace("\"", ""));
+//                brandMobileInfo.setMobile(hssfRow.getCell(3).toString().replace("\"", ""));
+//                brandMobileInfo.setPassword(hssfRow.getCell(4).toString().replace("\"",""));
                 brandMobileInfos.add(brandMobileInfo);
 
             }

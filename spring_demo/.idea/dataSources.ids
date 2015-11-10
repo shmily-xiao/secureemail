@@ -21583,7 +21583,7 @@
       <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
     </table>
     <table name="user_information" schema="public" catalog="secureemail" type="TABLE">
-      <column name="user_id" sqlType="varchar" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user_id" sqlType="varchar" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <column name="user_name" sqlType="varchar" precision="10" scale="0" nullable="true" jdbcType="12"/>
       <column name="user_pw" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
       <column name="special_root" sqlType="bool" precision="1" scale="0" nullable="true" jdbcType="-7"/>

@@ -1,6 +1,9 @@
 package com.secureemail.service;
 
 import com.secureemail.domain.User;
+import com.secureemail.query.UserQuery;
+
+import java.util.Optional;
 
 /**
  * Created by simpletour_Jenkin on 2015/11/9.
@@ -12,26 +15,26 @@ public interface UserService {
      * @param user
      * @return
      */
-    public User find(User user);
+    public Optional<User> find(UserQuery user);
 
     /**
      * 更新用户信息
      * @param user
      * @return
      */
-    public int update(User user);
+    public int update(UserQuery user);
 
     /**
      * 添加用户信息
      * @param user
      * @return
      */
-    public int insert(User user);
+    public int insert(UserQuery user);
 
     /**
      * 删除某一个用户
      * @param user
      * @return
      */
-    public int delete(User user);
+    public int delete(UserQuery user);
 }

@@ -4,13 +4,13 @@ package com.secureemail.dao;
  * Created by simpletour_Jenkin on 2015/11/7.
  * 基本的操作
  */
-public interface BaseDao<T> {
+public interface BaseDao<T,PK> {
     /**
      * 查找
      * @param query
      * @return
      */
-    public T find(T query);
+    public PK find(T query);
 
     /**
      * 删除
