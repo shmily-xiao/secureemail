@@ -35,7 +35,7 @@ public class BaseDaoImpl<T,PK> extends SqlSessionDaoSupport implements BaseDao<T
     }
 
     @Override
-    public int insert(T query) {
+    public int insert(PK query) {
         return this.getSqlSession().insert(opof(getNameSpace(),"insert"),query);
     }
 }

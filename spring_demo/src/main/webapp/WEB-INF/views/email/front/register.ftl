@@ -22,32 +22,41 @@
         var input = document.getElementById("password");
         var password1 = input.value;
         var password2 = input2.value;
-        if (password1 != password2){
-            alert("两次密码不对！");
-            return false;
-        }
-        if(password1.trim().length < 8){
-            alert("密码不能小于8位！");
-            return false;
-        }
 
-        var userId = document.getElementById("userId")
-        if (userId.trim() == ''){
+        var userId = document.getElementById("userId").value;
+        if (userId == null){
             alert("用户的id的不能为空！");
             return false;
         }
 
-        var userName = document.getElementById("userName")
-        if (userName.trim() == ''){
+        var userName = document.getElementById("userName").value;
+        if (userName == null){
             alert("用户的名字的不能为空！");
             return false;
         }
 
-        var code = document.getElementById("code");
-        if (code.trim() == ''){
+        if(password1 == null || password1.trim().length < 8){
+            alert("密码不能小于8位！");
+            return false;
+        }
+
+        var code = document.getElementById("code").value;
+        if (code == null){
             alert("用户的名字的不能为空！");
             return false;
         }
+        var emailId = document.getElementById("userId").value;
+        var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!filter.test(emailId)) {
+            alert('您的电子邮件格式不正确');
+            return false;
+        }
+
+        if (password1 != password2){
+            alert("两次密码不对！");
+            return false;
+        }
+
 
         var password = hex_md5(password1);
         alert(password);
@@ -55,12 +64,13 @@
         document.register.action="/web/front/register";
         document.register.submit();
     }
+
     function isSearch(s)
     {
-        var patrn=/[\"\'<>``!#$%^&*+-\/\/\/\\//?,]/;     //这里禁止<和>的输入
+        var patrn=/[\"\'<>``!#$%^&*+-\/\\?,]/;     //这里禁止<和>的输入
         if (patrn.exec(s))
         {
-            alert("不能包含特殊字符(\"\'<>``!@#$%^&*+-\/\/\/\\//?,.)");
+            alert("不能包含特殊字符(\"\'<>``!#$%^&*+-\/\\?,)");
             return true;
         }
         return false;
@@ -110,14 +120,15 @@
     <form method="post" name="register" >
         <div class="row style_row">
             <div class="col-lg-6 style_col">
-                <div class="input-group" id = "userId">
+                <div class="input-group">
                     <span class="input-group-addon">用户账号</span>
-                    <input type="text" class="form-control" maxlength="41" onfocusout="if(isSearch(this.value))this.focus()" onkeydown="if(event.keyCode==32) return false"  onKeypress="if ((event.keyCode > 32 && event.keyCode < 48) || (event.keyCode > 57 && event.keyCode < 65) || (event.keyCode > 90 && event.keyCode < 97)||event.keyCode == 32) event.returnValue = false;" id="acceptperson" tabindex="1" placeholder="用户ID(不能为中文)如：wwww@xiao.com" id = "userId" name = "userId">
+                    <#--onkeydown="if(event.keyCode==32) return false"   onKeypress="if ((event.keyCode > 32 && event.keyCode < 48) || (event.keyCode > 57 && event.keyCode < 65) || (event.keyCode > 90 && event.keyCode < 97)||event.keyCode == 32) event.returnValue = false;"-->
+                    <input type="text" class="form-control" maxlength="41" tabindex="1" placeholder="用户ID(不能为中文)如：wwww@xiao.com" id = "userId" name = "userId">
                 </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
 
             <div class="col-lg-6 style_col">
-                <div class="input-group" id = "username">
+                <div class="input-group">
                     <span class="input-group-addon">您的名字</span>
                     <input type="text" class="form-control" abindex="1" placeholder="这将显示在您的主页上，请谨慎填写！" onkeydown="if(event.keyCode==32) return false"  onKeypress="if ((event.keyCode > 32 && event.keyCode < 48) || (event.keyCode > 57 && event.keyCode < 65) || (event.keyCode > 90 && event.keyCode < 97)||event.keyCode == 32) event.returnValue = false;"id = "userName" name = "userName">
                 </div><!-- /input-group -->

@@ -31,5 +31,5 @@ public interface BaseDao<T,PK> {
      * @param query
      * @return
      */
-    public int insert(T query);
+    public int insert(PK query);
 }

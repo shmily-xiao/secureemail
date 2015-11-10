@@ -29,7 +29,7 @@ public interface UserService {
      * @param user
      * @return
      */
-    public int insert(UserQuery user);
+    public int insert(User user);
 
     /**
      * 删除某一个用户

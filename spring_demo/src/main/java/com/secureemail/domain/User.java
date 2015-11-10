@@ -1,5 +1,10 @@
 package com.secureemail.domain;
 
+import com.demo.security.Md5;
+import com.secureemail.query.UserQuery;
+
+import java.util.Random;
+
 /**
  * Created by simpletour_Jenkin on 2015/11/7.
  * 用户的表结构
@@ -19,6 +24,16 @@ public class User {
 
     //salt 随机数
     private int salt;
+
+    public User(){}
+
+    public User(UserQuery userQuery){
+        this.userId = userQuery.getUserId().substring(0,userQuery.getUserId().length()-9);
+        this.userName = userQuery.getUserName();
+        Random random = new Random();
+        this.salt = (int)(random.nextDouble()) * 10000;
+        this.userPw = Md5.messageDigest(userQuery.getPassword() + salt);
+    }
 
     public String getUserId() {
         return userId;
@@ -58,5 +73,11 @@ public class User {
 
     public void setSalt(int salt) {
         this.salt = salt;
+    }
+
+    public static void main(String[] args){
+        Random random = new Random();
+        int salt =(int)(random.nextDouble()) * 10000;
+        System.out.print(salt);
     }
 }

@@ -8,5 +8,5 @@ import com.secureemail.query.UserQuery;
  * Created by simpletour_Jenkin on 2015/11/7.
  * 用户的资源访问层
  */
-public class UserDaoImpl extends BaseDaoImpl<UserQuery> implements UserDao {
+public class UserDaoImpl extends BaseDaoImpl<UserQuery,User> implements UserDao {
 }

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 /**
  * Created by simpletour_Jenkin on 2015/11/9.
@@ -61,7 +60,6 @@ public class EmailUserController {
         if (user.getUserId().length()<9){
             return "redirect:/email/front/register";
         }
-        String userId = user.getUserId().substring(0,user.getUserId().length()-9);
         String emailPostfix = user.getUserId().substring(user.getUserId().length()-9,user.getUserId().length());
         if (!POSTFIX.equalsIgnoreCase(emailPostfix)){
             model.addAttribute("registerError","非法的网关后缀！");
@@ -69,7 +67,9 @@ public class EmailUserController {
         }
         Optional<User> temp = userService.find(user);
         if (!temp.isPresent()){
-            if (userService.insert(user) ==0){
+            User userTemp = new User(user);
+            userTemp.setSpecialRoot(false);//默认没有超级权限
+            if (userService.insert(userTemp) ==0){
                 model.addAttribute("registerError","未知原因，注册失败！");
                 return "/email/front/register";
             }
