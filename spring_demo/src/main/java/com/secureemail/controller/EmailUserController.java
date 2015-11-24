@@ -65,7 +65,10 @@ public class EmailUserController {
             model.addAttribute("registerError","非法的网关后缀！");
             return "/email/front/register";
         }
-        Optional<User> temp = userService.find(user);
+        String userId = user.getUserId().substring(0,user.getUserId().length()-9);
+        Optional<User> temp = userService.find(new UserQuery(){{
+            this.setUserId(userId);
+        }});
         if (!temp.isPresent()){
             User userTemp = new User(user);
             userTemp.setSpecialRoot(false);//默认没有超级权限

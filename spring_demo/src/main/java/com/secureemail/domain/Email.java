@@ -36,7 +36,7 @@ public class Email {
     private Boolean isRead;
 
     //是否为自动发送（回复）
-    private Boolean atuoSend;
+    private Boolean autoSend;
 
     //是接收的还是发送的
     private Boolean sendOrAccept;
@@ -113,12 +113,12 @@ public class Email {
         this.isRead = isRead;
     }
 
-    public Boolean getAtuoSend() {
-        return atuoSend;
+    public Boolean getAutoSend() {
+        return autoSend;
     }
 
-    public void setAtuoSend(Boolean atuoSend) {
-        this.atuoSend = atuoSend;
+    public void setAutoSend(Boolean autoSend) {
+        this.autoSend = autoSend;
     }
 
     public Boolean getSendOrAccept() {

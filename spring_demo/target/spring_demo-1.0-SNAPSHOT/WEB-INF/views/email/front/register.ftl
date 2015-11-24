@@ -22,14 +22,6 @@
         var input = document.getElementById("password");
         var password1 = input.value;
         var password2 = input2.value;
-        if (password1 != password2){
-            alert("两次密码不对！");
-            return false;
-        }
-        if(password1 == null || password1.trim().length < 8){
-            alert("密码不能小于8位！");
-            return false;
-        }
 
         var userId = document.getElementById("userId").value;
         if (userId == null){
@@ -40,6 +32,11 @@
         var userName = document.getElementById("userName").value;
         if (userName == null){
             alert("用户的名字的不能为空！");
+            return false;
+        }
+
+        if(password1 == null || password1.trim().length < 8){
+            alert("密码不能小于8位！");
             return false;
         }
 
@@ -54,6 +51,12 @@
             alert('您的电子邮件格式不正确');
             return false;
         }
+
+        if (password1 != password2){
+            alert("两次密码不对！");
+            return false;
+        }
+
 
         var password = hex_md5(password1);
         alert(password);

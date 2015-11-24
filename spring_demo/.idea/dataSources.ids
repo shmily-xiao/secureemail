@@ -21548,7 +21548,7 @@
       <column name="send_information" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="send_time" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
       <column name="isread" sqlType="bool" precision="1" scale="0" nullable="true" jdbcType="-7"/>
-      <column name="atuosend" sqlType="bool" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="autosend" sqlType="bool" precision="1" scale="0" nullable="true" jdbcType="-7"/>
       <column name="sendoraccept" sqlType="bool" precision="1" scale="0" nullable="true" jdbcType="-7"/>
       <primary-key name="e_mail_pkey" columns="e_mail_id"/>
     </table>

@@ -16,7 +16,7 @@ public class BaseDaoImpl<T,PK> extends SqlSessionDaoSupport implements BaseDao<T
     }
 
     public final String opof(String namespace, String op){
-        return String.format("%s,%s",namespace,op);
+        return String.format("%s.%s",namespace,op);
     }
 
     @Override

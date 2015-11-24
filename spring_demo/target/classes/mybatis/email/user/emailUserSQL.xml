@@ -30,7 +30,7 @@
         WHERE user_id = #{userId}
     </update>
 
-    <select id="find">
+    <select id="find" resultMap="emailUserResultMap">
         SELECT * FROM user_information
         <where>
             <if test="userId!=null or userId!=''">AND user_id = #{userId}</if>
