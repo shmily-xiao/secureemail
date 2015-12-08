@@ -3,10 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.secureemail.dao.impl.EmailDaoImpl">
     <resultMap id="emailResultMap" type="Email" autoMapping="true">
-
+        <id property="emailId" column="e_mail_id"/>
+        <result property="acceptPersonId" column="accept_person_id"/>
+        <result property="acceptPersonName" column="accept_person_name"/>
+        <result property="sendPersonId" column="send_person_id"/>
+        <result property="sendPersonName" column="send_person_name"/>
+        <result property="emailTheme" column="e_mail_theme"/>
+        <result property="sendInformation" column="send_information"/>
+        <result property="sendTime" column="send_time"/>
+        <result property="isRead" column="isread"/>
+        <result property="autoSend" column="autosend"/>
+        <result
     </resultMap>
     <insert id="insert">
-        INSERT INTO e_mail(accept_person_id,accept_person_name,send_person_id,send_person_name,e_mail_theme,send_information,send_time,isread,atuosend,sendoraccept)
+        INSERT INTO e_mail(accept_person_id,accept_person_name,send_person_id,send_person_name,e_mail_theme,send_information,send_time,isread,autosend,sendoraccept)
         VALUES (#{acceptPersonId},#{acceptPersonName},#{sendPersonId},#{sendPersonName},#{emailTheme},#{sendInformation},#{sendTime},#{isRead},#{atuoSend},{snedOrAccept});
     </insert>
 
