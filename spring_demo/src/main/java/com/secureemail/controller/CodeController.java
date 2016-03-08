@@ -15,6 +15,8 @@ import java.util.Random;
 
 /**
  * Created by simpletour_Jenkin on 2015/11/10.
+ *
+ * 验证码code
  */
 @Controller
 public class CodeController {
