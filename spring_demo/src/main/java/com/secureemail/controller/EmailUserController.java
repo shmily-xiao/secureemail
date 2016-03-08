@@ -16,6 +16,8 @@ import java.util.Optional;
 
 /**
  * Created by simpletour_Jenkin on 2015/11/9.
+ *
+ * 用户登录，注册模块
  */
 @Controller
 public class EmailUserController {
@@ -38,11 +40,11 @@ public class EmailUserController {
             return "email/front/login";
         }
         Optional<User> userTemp = userService.find(user);
-        String tempPassword = Md5.messageDigest(user.getPassword() + userTemp.get().getSalt());
+        String tempPassword = Md5.messageDigest(user.getUserPw() + userTemp.get().getSalt());
         if (tempPassword.equalsIgnoreCase(userTemp.get().getUserPw())){
             session.setAttribute("userName",userTemp.get().getUserName());
             session.setAttribute("userId",userTemp.get().getUserId());
-            //todo
+            //todo 跳转到主页
             return "";
         }
         model.addAttribute("loginError","用户名或密码错误");
@@ -55,30 +57,29 @@ public class EmailUserController {
     }
 
     @RequestMapping(value = "web/front/register",method = RequestMethod.POST)
-    public String register(Model model,UserQuery user,HttpServletRequest request){
+    public String register(Model model,UserQuery userQuery,HttpServletRequest request){
         HttpSession session = request.getSession();
-        if (user.getUserId().length()<9){
+        if (userQuery.getUserId().length()<9){
             return "redirect:/email/front/register";
         }
-        String emailPostfix = user.getUserId().substring(user.getUserId().length()-9,user.getUserId().length());
+        String emailPostfix = userQuery.getUserId().substring(userQuery.getUserId().length()-9,userQuery.getUserId().length());
         if (!POSTFIX.equalsIgnoreCase(emailPostfix)){
             model.addAttribute("registerError","非法的网关后缀！");
             return "/email/front/register";
         }
-        String userId = user.getUserId().substring(0,user.getUserId().length()-9);
-        Optional<User> temp = userService.find(new UserQuery(){{
-            this.setUserId(userId);
-        }});
+        String userId = userQuery.getUserId().substring(0,userQuery.getUserId().length()-9);
+        Optional<User> temp = userService.find(new UserQuery(userId));
+
         if (!temp.isPresent()){
-            User userTemp = new User(user);
+            User userTemp = new User(userQuery);
             userTemp.setSpecialRoot(false);//默认没有超级权限
             if (userService.insert(userTemp) ==0){
                 model.addAttribute("registerError","未知原因，注册失败！");
                 return "/email/front/register";
             }
-            session.setAttribute("userName",user.getUserName());
-            session.setAttribute("userId", user.getUserId());
-            //todo
+            session.setAttribute("userName",userQuery.getUserName());
+            session.setAttribute("userId", userQuery.getUserId());
+            //todo 跳转到主页
             return "";
         }
         model.addAttribute("registerError","用户已经注册");

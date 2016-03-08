@@ -1,5 +1,6 @@
 package com.secureemail.query;
 
+
 /**
  * Created by simpletour_Jenkin on 2015/11/10.
  */
@@ -11,7 +12,7 @@ public class UserQuery {
     private String userName;
 
     //用户密码
-    private String password;
+    private String userPw;
 
     //是否有特殊权限的用户
     private Boolean specialRoot;
@@ -21,6 +22,12 @@ public class UserQuery {
 
     //验证码
     private String code;
+
+    public UserQuery(){}
+
+    public UserQuery(String userId){
+        this.userId = userId;
+    }
 
     public String getUserId() {
         return userId;
@@ -38,12 +45,12 @@ public class UserQuery {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserPw() {
+        return userPw;
     }
 
-    public void setPassword(String userPw) {
-        this.password = userPw;
+    public void setUserPw(String userPw) {
+        this.userPw = userPw;
     }
 
     public Boolean getSpecialRoot() {

@@ -3,6 +3,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.secureemail.dao.impl.EmailModelDaoImpl">
     <resultMap id="emailModelResultMap" type="EmailModel" autoMapping="true">
+        <id property="emailModelId" column="e_mail_id"/>
+        <result property="emailModelTheme" column="e_mail_theme"/>
+        <result property="emailModelDetail" column="e_mail_detail"/>
     </resultMap>
     <insert id="insert">
         INSERT INTO e_mail_model(e_mail_theme,e_mail_detail)

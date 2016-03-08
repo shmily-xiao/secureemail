@@ -11,16 +11,16 @@
     </resultMap>
     <insert id="insert">
         INSERT INTO user_information(user_id,user_name,user_pw,special_root)
-        VALUES (#{userId},#{userName},#{userPw},#{specailRoot});
+        VALUES (#{userId},#{userName},#{userPw},#{specialRoot});
     </insert>
 
     <delete id="delete">
         DELETE FROM user_information
         <where>
             <if test="userId!=null or userId!=''">AND user_id = #{userId}</if>
-            <if test="user_name!=null or user_name!=''">AND user_name = #{userName}</if>
+            <if test="userName!=null or userName!=''">AND user_name = #{userName}</if>
             <if test="userPw!=null or userPw!=''">AND user_pw = #{userPw}</if>
-            <if test="specialRoot!=null">AND special_root = #{specailRoot}</if>
+            <if test="specialRoot != null">AND special_root = #{specailRoot}</if>
         </where>
     </delete>
 
@@ -38,7 +38,7 @@
         SELECT * FROM user_information
         <where>
             <if test="userId!=null or userId!=''">AND user_id = #{userId}</if>
-            <if test="user_name!=null or user_name!=''">AND user_name = #{userName}</if>
+            <if test="userName!=null or userName!=''">AND user_name = #{userName}</if>
             <if test="userPw!=null or userPw!=''">AND user_pw = #{userPw}</if>
             <if test="specialRoot!=null">AND special_root = #{specailRoot}</if>
         </where>

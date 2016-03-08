@@ -2,7 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias alias="User" type="com.demo.domain.User" />
+        <typeAlias alias="User" type="com.demo.domain.User"/>
         <typeAlias alias="Detail" type="com.demo.domain.Detail"/>
         <typeAlias alias="Cookies" type="com.demo.domain.Cookies"/>
         <typeAlias alias="Person" type="com.demo.domain.Person"/>

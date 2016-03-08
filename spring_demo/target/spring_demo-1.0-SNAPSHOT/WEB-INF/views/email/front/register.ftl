@@ -59,7 +59,7 @@
 
 
         var password = hex_md5(password1);
-        alert(password);
+//        alert(password);
         document.getElementById("password").value = password;
         document.register.action="/web/front/register";
         document.register.submit();
@@ -112,7 +112,7 @@
         color: red;
     }
 </style>
-<body class="cas zh " >
+<body class="cas zh " style="background-color: #B8FADC">
 <div id = "main">
     <h1>欢迎进入您的安全邮箱注册界面</h1>
     <hr>

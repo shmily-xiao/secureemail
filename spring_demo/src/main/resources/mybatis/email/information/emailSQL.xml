@@ -13,7 +13,7 @@
         <result property="sendTime" column="send_time"/>
         <result property="isRead" column="isread"/>
         <result property="autoSend" column="autosend"/>
-        <result
+        <result property="sendOrAccept" column="sendor=accept"/>
     </resultMap>
     <insert id="insert">
         INSERT INTO e_mail(accept_person_id,accept_person_name,send_person_id,send_person_name,e_mail_theme,send_information,send_time,isread,autosend,sendoraccept)

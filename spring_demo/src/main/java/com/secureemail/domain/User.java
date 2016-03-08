@@ -32,7 +32,7 @@ public class User {
         this.userName = userQuery.getUserName();
         Random random = new Random();
         this.salt = (int)(random.nextDouble()) * 10000;
-        this.userPw = Md5.messageDigest(userQuery.getPassword() + salt);
+        this.userPw = Md5.messageDigest(userQuery.getUserPw() + salt);
     }
 
     public String getUserId() {
