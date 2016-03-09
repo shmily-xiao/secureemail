@@ -1,9 +1,3 @@
-<%@ page language="java" import="java.util.*,com.email.dto.*" pageEncoding="utf-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,8 +36,6 @@ margin-top:8px;
 }
 </style>
 <body>
-		
-			
 		<form action="emailpersonalmodelsend" method="post">
 		<div>
 		<div class="c2">
@@ -69,21 +61,13 @@ margin-top:8px;
 					<th width="450px">主题</th>
 					
 				</tr>
-					<%  
-				 
-					ArrayList<EmailModel> emailmodel = (ArrayList<EmailModel>)request.getAttribute("personalemailmodel"); 
-				
-					for(EmailModel email:emailmodel){
-				
-				%>
+
 				<tr class="t1">
 					<td> <input type="radio" name="emailid" value="<%=email.getE_mail_id()%>"/><%=email.getE_mail_id() %></td>
 					<td ><input type="hidden" name="emailtheme" value="<%=email.getE_mail_theme()%>"/><%=email.getE_mail_theme() %></td>
 					
 				</tr>
-				
-				
-				<%} %>
+
 			</table>
 			</div>
 			</div>

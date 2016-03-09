@@ -6,6 +6,8 @@ import com.secureemail.domain.Email;
 import com.secureemail.domain.EmailModel;
 import com.secureemail.service.EmailService;
 
+import javax.annotation.Resource;
+
 /**
  * Created by simpletour_Jenkin on 2015/11/9.
  */
@@ -17,42 +19,42 @@ public class EmailServiceImpl implements EmailService{
 
     @Override
     public Email find(Email email) {
-        return null;
+        return emailDao.find(email);
     }
 
     @Override
     public int update(Email email) {
-        return 0;
+        return emailDao.update(email);
     }
 
     @Override
     public int insert(Email email) {
-        return 0;
+        return emailDao.insert(email);
     }
 
     @Override
     public int delete(Email email) {
-        return 0;
+        return emailDao.delete(email);
     }
 
     @Override
     public EmailModel find(EmailModel email) {
-        return null;
+        return emailModelDao.find(email);
     }
 
     @Override
     public int update(EmailModel email) {
-        return 0;
+        return emailModelDao.update(email);
     }
 
     @Override
     public int insert(EmailModel email) {
-        return 0;
+        return emailModelDao.insert(email);
     }
 
     @Override
     public int delete(EmailModel email) {
-        return 0;
+        return emailModelDao.delete(email);
     }
 
     public void setEmailDao(EmailDao emailDao) {

@@ -5,7 +5,6 @@ package com.secureemail.controller;
  *
  * 一般的邮件发送功能
  */
-public class EmailController
-{
+public class EmailController {
 
 }

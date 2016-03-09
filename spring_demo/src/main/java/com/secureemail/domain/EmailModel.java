@@ -1,5 +1,7 @@
 package com.secureemail.domain;
 
+import java.security.PublicKey;
+
 /**
  * Created by simpletour_Jenkin on 2015/11/7.
  * 邮箱模板的表结构
@@ -13,6 +15,13 @@ public class EmailModel {
 
     //模板邮箱的详情
     private String emailModelDetail;
+
+    public EmailModel(){}
+
+    public EmailModel(Long emailModelId){
+        this.emailModelId = emailModelId;
+    }
+
 
     public long getEmailModelId() {
         return emailModelId;
