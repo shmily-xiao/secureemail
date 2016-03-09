@@ -4,7 +4,7 @@ package com.secureemail.query;
 /**
  * Created by simpletour_Jenkin on 2015/11/10.
  */
-public class UserQuery {
+public class UserQuery extends BaseQuery{
     //用户id
     private String userId;
 

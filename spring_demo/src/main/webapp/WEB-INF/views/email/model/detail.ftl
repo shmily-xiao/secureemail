@@ -8,7 +8,7 @@
 <script src="/js/total.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-function getemail(){
+function getEmail(){
 	var b = confirm("确认要这收藏这份群邮件到收件箱吗？");
 	if(b == true){
 		document.getElementById("groupemail").action="grouptoperonalemail";
@@ -59,34 +59,24 @@ body,html{
 
 </style>
 <body>
+	<div class="right" style="float:left">
+		<form action="groupemailsearch" id ="groupemail" method="post">
+			<div  class="acceptbox" style="float:none">
+				<div style="float:left">
+					<input type="button" value="主题："/>
+					<input class="f1" type="text" name="theme" tabindex="1" readonly="readonly" value="${emailModel.emailModelTheme}"/>
+				</div>
+				<div  class="c1"><a href="emaillooklist"><input type="button" name="back"style="cursor: pointer"oncilk ="back()"value="返回"/></a></div>
+			</div>
 
-			<div class="right" style="float:left">
-			
-			<form action="groupemailsearch" id ="groupemail" method="post">
-				<div  class="acceptbox" style="float:none">	
-					<div style="float:left">
-						
-						<input type="button" value="主题："/>
-
-						<input class="f1" type="text" name="theme" tabindex="1" readonly="readonly" value="${emailModel.emailModelTheme}"/>
-						
-						
-					</div>
-					<div  class="c1"><a href="emaillooklist"><input type="button" name="back"style="cursor: pointer"oncilk ="back()"value="返回"/></a></div>
-				</div>
+			<div class="send" >
+				<textarea id="sendtext" name="text" rows="16" readonly="true" style="resize:none">${emailModel}</textarea>
+			</div>
 				
-				<div class="send" >
-						
-						<textarea id="sendtext" name="text" rows="16" readonly="true" style="resize:none">${emailModel}/textarea>
-						
-				</div>
-				
-				<div class="acceptbox">
-					<input type="hidden" onClick="getemail();" style="cursor:pointer" value="收藏"/>		
-				</div>
-				
+			<div class="acceptbox">
+				<input type="hidden" onClick="getEmail();" style="cursor:pointer" value="收藏"/>
+			</div>
 		</form>
-			 </div>
-			
+	</div>
 </body>
 </html>

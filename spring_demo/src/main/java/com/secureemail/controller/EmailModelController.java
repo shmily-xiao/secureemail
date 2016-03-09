@@ -28,4 +28,9 @@ public class EmailModelController {
         return "email/model/detail";
     }
 
+    @RequestMapping(value = "/security/email/model/list")
+    public String list(Model model){
+        return null;
+    }
+
 }
