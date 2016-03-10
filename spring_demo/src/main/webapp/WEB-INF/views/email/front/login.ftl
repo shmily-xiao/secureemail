@@ -60,8 +60,9 @@ function chgUrl(url) {
 					<div class="bar right six"></div>
 				</div>
 				<div class="well-big square-top">
-					<form method="post" name="login" action="/web/front/login" th:action="@{/web/front/login}">
-						
+					<#--<form method="post" name="login" action="/web/front/login" th:action="@{/web/front/login}">-->
+					<form method="post" name="login"">
+
 						<div class="field">
 							<div class="input-group ">
 								<span class="input-group-addon">

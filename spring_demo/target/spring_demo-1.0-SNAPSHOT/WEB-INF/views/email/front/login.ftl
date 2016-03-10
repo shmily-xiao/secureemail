@@ -60,14 +60,15 @@ function chgUrl(url) {
 					<div class="bar right six"></div>
 				</div>
 				<div class="well-big square-top">
-					<form method="post" name="login" action="/web/front/login" th:action="@{/web/front/login}">
-						
+					<#--<form method="post" name="login" action="/web/front/login" th:action="@{/web/front/login}">-->
+					<form method="post" name="login"">
+
 						<div class="field">
 							<div class="input-group ">
 								<span class="input-group-addon">
 								<img src="/img/user.jpg">
 								</span>
-								<input type="text" class="form-control input-lg" name="userName" tabindex="1" placeholder="用户ID"
+								<input type="text" class="form-control input-lg" name="userId" tabindex="1" placeholder="用户ID"
 								value="" data-required="true" />
 							</div>
 						</div>
