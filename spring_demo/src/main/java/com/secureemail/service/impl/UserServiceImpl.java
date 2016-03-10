@@ -5,6 +5,7 @@ import com.secureemail.domain.User;
 import com.secureemail.query.UserQuery;
 import com.secureemail.service.UserService;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -21,7 +22,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int update(UserQuery user) {
+    public int update(User user) {
         return userDao.update(user);
     }
 
@@ -33,6 +34,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public int delete(UserQuery user) {
         return userDao.delete(user);
+    }
+
+    @Override
+    public List<User> list(UserQuery userQuery) {
+        return userDao.list(userQuery);
+    }
+
+    @Override
+    public List<User> listWithPages(UserQuery userQuery) {
+        return userDao.query(userQuery);
     }
 
     public void setUserDao(UserDao userDao) {

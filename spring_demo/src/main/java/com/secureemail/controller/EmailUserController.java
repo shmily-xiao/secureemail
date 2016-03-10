@@ -40,6 +40,8 @@ public class EmailUserController {
             return "email/front/login";
         }
         Optional<User> userTemp = userService.find(user);
+        userService.listWithPages(user);
+        
         String tempPassword = Md5.messageDigest(user.getUserPw() + userTemp.get().getSalt());
         if (tempPassword.equalsIgnoreCase(userTemp.get().getUserPw())){
             session.setAttribute("userName",userTemp.get().getUserName());

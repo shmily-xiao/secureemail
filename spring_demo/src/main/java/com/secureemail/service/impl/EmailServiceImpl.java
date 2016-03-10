@@ -4,9 +4,12 @@ import com.secureemail.dao.EmailDao;
 import com.secureemail.dao.EmailModelDao;
 import com.secureemail.domain.Email;
 import com.secureemail.domain.EmailModel;
+import com.secureemail.query.EmailModelQuery;
+import com.secureemail.query.EmailQuery;
 import com.secureemail.service.EmailService;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by simpletour_Jenkin on 2015/11/9.
@@ -18,7 +21,7 @@ public class EmailServiceImpl implements EmailService{
     private EmailModelDao emailModelDao;
 
     @Override
-    public Email find(Email email) {
+    public Email find(EmailQuery email) {
         return emailDao.find(email);
     }
 
@@ -33,12 +36,22 @@ public class EmailServiceImpl implements EmailService{
     }
 
     @Override
-    public int delete(Email email) {
+    public int delete(EmailQuery email) {
         return emailDao.delete(email);
     }
 
     @Override
-    public EmailModel find(EmailModel email) {
+    public List<Email> listWithPages(EmailQuery emailQuery) {
+        return null;
+    }
+
+    @Override
+    public List<Email> list(EmailQuery emailQuery) {
+        return null;
+    }
+
+    @Override
+    public EmailModel find(EmailModelQuery email) {
         return emailModelDao.find(email);
     }
 
@@ -53,8 +66,18 @@ public class EmailServiceImpl implements EmailService{
     }
 
     @Override
-    public int delete(EmailModel email) {
+    public int delete(EmailModelQuery email) {
         return emailModelDao.delete(email);
+    }
+
+    @Override
+    public List<EmailModel> listWithPages(EmailModelQuery emailModelQuery) {
+        return null;
+    }
+
+    @Override
+    public List<EmailModel> list(EmailModelQuery emailModelQuery) {
+        return null;
     }
 
     public void setEmailDao(EmailDao emailDao) {

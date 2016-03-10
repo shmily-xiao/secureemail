@@ -1,6 +1,8 @@
 package com.secureemail.controller;
 
 import com.secureemail.domain.EmailModel;
+import com.secureemail.query.EmailModelQuery;
+import com.secureemail.request.EmailModelRequest;
 import com.secureemail.service.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,13 +25,15 @@ public class EmailModelController {
     @RequestMapping(value ="/security/email/model/detail/{id}")
     public String detail(@PathVariable Long id, Model model){
 
-        EmailModel emailModel = emailService.find(new EmailModel(id));
+        EmailModel emailModel = emailService.find(new EmailModelQuery(id));
         model.addAttribute("emailModel",emailModel);
         return "email/model/detail";
     }
 
     @RequestMapping(value = "/security/email/model/list")
-    public String list(Model model){
+    public String list(EmailModelQuery emailModelQuery, Model model){
+
+        
         return null;
     }
 
