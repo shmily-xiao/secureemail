@@ -31,7 +31,7 @@ public class User {
         this.userId = userQuery.getUserId().substring(0,userQuery.getUserId().length()-9);
         this.userName = userQuery.getUserName();
         Random random = new Random();
-        this.salt = (int)(random.nextDouble()) * 10000;
+        this.salt = (int)(random.nextDouble() * 10000);
         this.userPw = Md5.messageDigest(userQuery.getUserPw() + salt);
     }
 

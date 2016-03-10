@@ -7,7 +7,7 @@ public abstract class BaseQuery {
     /**
      * 第几页
      */
-    protected int pageIndex  = 1;
+    protected int pageIndex  = 0;
 
     /**
      * 每一页显示的记录数

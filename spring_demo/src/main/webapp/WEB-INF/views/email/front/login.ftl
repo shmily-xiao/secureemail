@@ -67,7 +67,7 @@ function chgUrl(url) {
 								<span class="input-group-addon">
 								<img src="/img/user.jpg">
 								</span>
-								<input type="text" class="form-control input-lg" name="userName" tabindex="1" placeholder="用户ID"
+								<input type="text" class="form-control input-lg" name="userId" tabindex="1" placeholder="用户ID"
 								value="" data-required="true" />
 							</div>
 						</div>
@@ -77,7 +77,7 @@ function chgUrl(url) {
 								<span class="input-group-addon">
 									<img src="/img/password.jpg">
 								</span>
-								<input type="password" class="form-control input-lg" name="password" id="password" tabindex="2" placeholder="密码"
+								<input type="password" class="form-control input-lg" name="userPw" id="password" tabindex="2" placeholder="密码"
 								value="" data-required="true"/>
 							</div>
 						</div>
