@@ -37,7 +37,7 @@ class SimpleFrame extends JFrame{
      */
     private static final int DEFAULT_HEIGHT = 450;
 
-    private JPanel buttonPanel;
+    private JPanel buttonPanel = new JPanel();
 
     public SimpleFrame(){
         /**
@@ -80,8 +80,6 @@ class SimpleFrame extends JFrame{
         JButton redButton = new JButton("red");
         JButton blueButton = new JButton("blue");
 
-        buttonPanel = new JPanel();
-
         // add button
         buttonPanel.add(yellowButton);
         buttonPanel.add(redButton);
@@ -107,12 +105,12 @@ class SimpleFrame extends JFrame{
         private Color backgroundColor;
 
         public ColorAction(Color color){
-            backgroundColor = color;
+            this.backgroundColor = color;
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            buttonPanel.setBackground(backgroundColor);
+            buttonPanel.setBackground(this.backgroundColor);
         }
     }
 
