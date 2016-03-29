@@ -8,6 +8,12 @@ public class Person {
     private String name;
     private String password;
 
+    // =================test start ====================
+
+    static class PackagePrivate{}
+    public static PackagePrivate member = new com.demo.domain.Person.PackagePrivate();
+
+    // =================test end ====================
     public String getId() {
         return id;
     }
