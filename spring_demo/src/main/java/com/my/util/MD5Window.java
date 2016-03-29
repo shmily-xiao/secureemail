@@ -37,9 +37,25 @@ class SimpleFrame extends JFrame{
      */
     private static final int DEFAULT_HEIGHT = 450;
 
-    private JPanel buttonPanel = new JPanel();
+    private JPanel buttonPanel = new JPanel(new BorderLayout());
 
     public SimpleFrame(){
+
+        styleFrame();
+
+        // 添加按钮
+        buttonPanel = buttonFrame(buttonPanel);
+        // 添加文本域
+        buttonPanel = textArea(buttonPanel);
+
+        add(buttonPanel,BorderLayout.SOUTH);
+    }
+
+    /**
+     * 添加样式和位置什么的
+     * @return
+     */
+    private void styleFrame(){
         /**
          * 设置窗口的大小
          */
@@ -62,12 +78,26 @@ class SimpleFrame extends JFrame{
         /**
          * 获取我们工具的logo图片（项目的root目录）
          */
-//        Path path = Paths.get("time.png");
+
         Image image = new ImageIcon("time.png").getImage();
         setIconImage(image);
 
-        // 添加按钮
-        add(buttonFrame(buttonPanel));
+    }
+
+    /**
+     * 添加文本域
+     * @param jPanel
+     * @return
+     */
+    private JPanel textArea(JPanel jPanel){
+        JTextArea textArea = new JTextArea("Default input",6,25);
+//        textArea.setEnabled(false);
+//        textArea.setDragEnabled(false);
+//        textArea.setEditable(false);
+        jPanel.add(textArea);
+
+        return jPanel;
+
     }
 
     /**
@@ -111,6 +141,8 @@ class SimpleFrame extends JFrame{
         @Override
         public void actionPerformed(ActionEvent e) {
             buttonPanel.setBackground(this.backgroundColor);
+            JTextField jTextField = new JTextField(20);
+            System.out.println(jTextField.getText());
         }
     }
 
