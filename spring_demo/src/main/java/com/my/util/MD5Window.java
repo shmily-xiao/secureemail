@@ -396,7 +396,7 @@ class TimeFrame extends JFrame{
             }else {
                 try {
                     inputTimestampTextArea.setForeground(this.backgroundColor);
-                    Date date = new Date(Long.parseLong(inputTimestampTextArea.getText()));
+                    Date date = new Date(Long.parseLong(inputTimestampTextArea.getText()) * 1000L);
                     outputDateTextArea.setText(sdf.format(date));
                     inputTimestampTextArea.setForeground(Color.BLACK);
                     outputDateTextArea.setBackground(this.backgroundColor);
