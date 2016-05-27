@@ -64,6 +64,12 @@ public class Test {
 //
 //        long missing = max*(max+1)/2 - (min-1)*min/2 - statistics.getSum();
 //        System.out.println(missing); // prints "6" here
+
+
+            String allUrl = "ksjfskj/mobile/gateway/wechat/666/lkjh";
+            System.out.println("=============1============"+allUrl.indexOf("/mobile/gateway/wechat/"));
+            System.out.println("==========2=========="+allUrl.substring(allUrl.indexOf("/mobile/gateway/wechat/")));
     }
+
 
 }
